@@ -1,0 +1,35 @@
+Python在DLE使用ctrl+l 清屏-20180820
+
+Python在“IDLE”使用ctrl + l 清屏
+
+在python的邮件列表中有很多这样类似的问题，但是没看到回答的。
+再google了一下，才算找到了答案——为idle增加一个清屏的扩展ClearWindow就可以了（在http://bugs.python.org/issue6143中可以看到这个扩展的说明）。
+下面我说安装使用的方法。
+1.下载ClearWindow.py，名称为ClearWindow.py
+首先下载clearwindow.py（点击可直接下载，不能
+下载的可以右键保存，格式为py结尾），
+https://bugs.python.org/file14303/ClearWindow.py
+2.
+将这个文件放在Python X\Lib\idlelib目录下（X为你的python版本），然后在这个目录下找到config-extensions.def这个文件（idle扩展的配置文件），以记事本的方式打开它（为防止出错，你可以在打开它之前先copy一个备份）。额，打开后它看起来可能会密密麻麻的，如果可以，建议你最好用像sublime text或vim这样支持高亮格式化的编辑器来打开它。
+
+3.
+打开config-extensions.def 后在句末加上这样几句：
+
+[ClearWindow]
+enable=1
+enable_editor=0
+enable_shell=1
+[ClearWindow_cfgBindings]
+clear-window=<Control-Key-l>
+
+
+然后保存退出就可以了。
+
+打开python的idle，看看options是不是多了一个选项clear shell window ctrl+L
+
+如果是这样的话，那就证明你安装成功了，以后要清屏直接ctrl+L就可以了，so ez ：）。
+
+
+——
+后来，我又找到了一个含各种扩展版本的python idle——IdleX，它就是将各种python idle常用一些的扩展都整合在一起而已,当然也包括clear window。
+安装使用并不麻烦，下载下压缩包（点此下载），然后解压运行idlex.py就可以了，外形和python原来idle完全一样，只是opinions可以看到更多的选项。
